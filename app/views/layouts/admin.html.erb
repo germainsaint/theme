@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html height="100%">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 2 | User Profile</title>
+  <%= javascript_include_tag 'application', :'data-turbolinks-track' => 'reload' %>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -24,9 +25,17 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <script>
+      (function(){
+          alert('hi');
+      })();
 
+  </script>
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<style>
+ .content {  min-height: 550px;}
+</style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -115,44 +124,42 @@
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
-
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li>
-          <%= link_to(admin_dashboard_path) do %>
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-          <% end %>
-        </li>
-        <li><%= link_to 'Send Message', send_message_path, remote: true %></li>
-
         <li class="treeview">
-          <a href="#">
+          <a href="javascript:void(0)">
             <i class="fa fa-pie-chart"></i>
-            <span>Twilio</span>
+            <span>Payment</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li>
-              <%= link_to 'custom', admin_custom_message_path %>
-
-            </li>
-            <li><a href="../charts/chartjs.html">
-            <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
-            <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-            <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
+            <li><%= link_to(admin_stripe_path) do %><i class="fa fa-circle-o"></i>Stripe<% end %></li>
+            <li><%= link_to(admin_paypal_path) do %><i class="fa fa-circle-o"></i>Paypal<% end %></li>
+            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i>Brain Tree</a></li>
+            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
           </ul>
         </li>
 
-
+        <li>
+          <%= link_to(admin_dashboard_path) do %>
+            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+          <% end %>
+        </li>
+        <li><%= link_to 'Send Message', twilio_sms_path, remote: true %></li>
       </ul>
     </section>
     <!-- /.sidebar -->
   </aside>
 
-  <%= yield %>
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+
+    <%= yield %>
+
+  </div>
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">

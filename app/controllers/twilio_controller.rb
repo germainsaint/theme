@@ -1,4 +1,4 @@
-require 'custom-ruby'
+require 'twilio-ruby'
 class TwilioController < ApplicationController
 
 skip_before_action :verify_authenticity_token
@@ -10,7 +10,6 @@ skip_before_action :verify_authenticity_token
 
 	from = '+14752340065' # Your Twilio number
 	to = '+919541555660' # Your mobile phone number
-
 	result = client.messages.create(
 	from: from,
 	to: to,

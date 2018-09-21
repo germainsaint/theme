@@ -1,7 +1,15 @@
 class Admin::SmsController < ApplicationController
-  def index
+  skip_before_action :verify_authenticity_token
+  layout 'admin'
+
+  def send(*arg)
+
   end
 
-  def send
+  def index()
+
   end
+
+
+
 end
