@@ -57,4 +57,5 @@ gem 'omniauth-facebook' # for facebook authentication
 
 gem 'pubnub', '~> 4.0.28'  # for pubNub realtime applications
 gem "rolify" # for Rolify with devise only
-#gem 'custom-ruby'
+gem 'twilio-ruby'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'

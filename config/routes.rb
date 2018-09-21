@@ -2,19 +2,19 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    get 'dashboard/show', to: 'dashboard#show', as: 'dashboard'
-    get 'dashboard/index', to: 'dashboard#index', as: 'dashboard_index'
-
-    get 'sms/index', to: 'sms#index', as: 'load_sms_form'
-    get 'sms/send', to: 'sms#send', as: 'send_sms'
-
+    get 'payment/stripe', to: 'payment#stripe', as: 'stripe'
+    get 'payment/paypal', to: 'payment#paypal', as: 'paypal'
+    get 'payment/braintree', to: 'payment#braintree', as: 'braintree'
   end
 
   namespace :admin do
     resources :users
+    get 'dashboard/show', to: 'dashboard#show', as: 'dashboard'
+    get 'dashboard/index', to: 'dashboard#index', as: 'dashboard_index'
+    get 'sms/index', to: 'sms#index', as: 'load_sms_form'
+    get 'sms/send', to: 'sms#send'
   end
 
-  get 'custom/send_message', to: 'custom#send_message', as: 'send_message'
 
   get 'users/index'
   get 'home/index'
@@ -41,9 +41,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope module: 'admin', path: 'fu', as: 'cool' do
-    resources :users
-  end
+  get '/twilio/send_message', to: 'twilio#send_message', as: 'twilio_sms'
 
   get 'user/index/:id', to: 'user#index', as: :user
 

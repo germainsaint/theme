@@ -1,2 +1,23 @@
-<h1>Admin::Payment#stripe</h1>
-<p>Find me in app/views/admin/payment/stripe.html.erb</p>
+<script>
+    (function(){
+        // location.reload();
+    })();
+
+</script>
+<section class="content">
+  <h1>Admin::Payment#stripe</h1>
+
+  <form action="your-server-side-code" method="POST">
+
+    <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_FJltK7s9KAqrI535YgI89teu"
+    data-amount="999"
+    data-name="Vidur Punj"
+    data-description="Example charge"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto">
+    </script>
+  </form>
+</section>
+

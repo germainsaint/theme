@@ -43,3 +43,8 @@ user_sessions
 | debug_mode     | tinyint(4)    | NO   |     | 1                   |                |
 +----------------+---------------+------+-----+---------------------+----------------+
 
+Tasks/ Rakefile
+Example:
+1.  rails g task stripe_pay create_token
+Reference: stripe
+https://stripe.com/docs/api#idempotent_requests
